@@ -1,0 +1,44 @@
+Crear la carpeta src
+Instalar las dependencias con npm init -y
+Crear las distintas carpetas dentro de la carpeta source
+Creamos el archivo index.js que inicia la aplicación y se comunica con app.js
+Instalamos nodemon
+Instalamos morgan (para ver en consola las peticiones)
+Instalamos express
+
+Inicializamos la app con express, la exportamos.
+
+Crear la carpeta controladores (Donde se escriben las funciones)
+Crear la carpeta Routes (Donde se rutea toda la api)
+Crear la carpeta schemas (Aqui se crean los esquemas para trabajar con la base de datos)
+Crear la carpeta middlewares (Aqui se escriben las funciones que intermedian entre el front y el back)
+Crear la carpeta libs (Se escriben funciones para reutilizar en toda la aplicación)
+
+Instalamos mongoose
+Creamos la DB con mongoose, y la conectamos al servidor. 
+
+Creamos el modelo del usuario, y lo exportamos con mongoose.model("User", variableDelEsquema)
+
+En la carpeta routes, se crea una archivo que engloba todas las rutas relacionadas con la autenticacion
+Dentro de la app.js cada archivo de ruteo, como se exporta con el mismo nombre de routes, debe ser definido
+
+Para crear y guardar datos, que se reciben mediante el req.body, guardamos los datos con el nombre del modelo
+que hicimos antes para el usuario
+
+minuto 47:43
+
+Minuto 52 - Explicacion de la new Promise hecha para el jwtAccessToken. 
+
+Mnuto 60:00 Explicacion que cada vez que el usuario se loguea, se genera un token nuevo. 
+
+1:02:55  Seccion, como validar el token para que el usuario solo pueda realizar cosas estando autenticado
+Dentro de la carpeta de middlewares se crea un archivo, validateToken, donde hay una función que se llama
+authRequired. Lo que hace esta función,es leer el cookie que llega mediante los headers. De esta forma..
+const authRequired = (req, res, next) => {
+    si es que hay un cookie, pasa a la siguiente funcion con el next.
+    Para leer el cookie que viene en los headers de una manera sencilla y no tener que
+    estar convirtiendolo ni sacandole caracteres y eso se hace con cookieParser, una dependencia que convierte
+    el cookie en un objeto .json 
+}
+
+1:21:00 seccion Tasks Crud
