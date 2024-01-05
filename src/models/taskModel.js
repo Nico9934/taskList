@@ -13,12 +13,16 @@ const taskSchema = new mongoose.Schema(
       trim: true,
     },
     date: {
-      type: date,
+      type: Date,
       default: Date.now,
     },
     complete: {
       type: Boolean,
       required: true,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   {
