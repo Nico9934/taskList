@@ -3,17 +3,17 @@ import { authRequired } from "../middlerwares/validateToken.js";
 import {
   getTask,
   deleteTask,
-  editTask,
+  updateTask,
   getTasks,
-  newTask,
+  createTask,
 } from "../controllers/task.controller.js";
 
 const router = express.Router();
 
 router.get("/tasks", authRequired, getTasks);
-router.get("/task", authRequired, getTask);
-router.post("/task", authRequired, newTask);
-router.delete("/task:id", authRequired, deleteTask);
-router.put("/task:id", authRequired, editTask);
+router.get("/tasks/:id", authRequired, getTask);
+router.post("/tasks", authRequired, createTask);
+router.delete("/tasks/:id", authRequired, deleteTask);
+router.put("/tasks/:id", authRequired, updateTask);
 
 export default router;

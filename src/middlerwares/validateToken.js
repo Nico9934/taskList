@@ -4,9 +4,10 @@ import User from "../models/userModel.js";
 
 export const authRequired = (req, res, next) => {
   const { token } = req.cookies;
-  let userFound = "";
   if (!token)
-    res.status(401).json({ message: "Invalid Token, Denied Authorization" });
+    return res
+      .status(401)
+      .json({ message: "Invalid Token, Denied Authorization" });
 
   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
     if (err) return res.status(401).json({ message: "Usuario no encontrado" });
