@@ -18,7 +18,6 @@ export const getTask = async (req, res) => {
   console.log(taskFound);
   res.json({ taskFound });
 };
-
 export const createTask = async (req, res) => {
   const { title, description, date, complete } = req.body;
   const { id } = req.user;
