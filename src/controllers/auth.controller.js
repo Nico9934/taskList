@@ -9,8 +9,7 @@ export const register = async (req, res) => {
   try {
     const userFound = await User.findOne({ email });
     if (userFound) {
-      res.send("El usuario ya existe");
-      return;
+      return res.status(401).json({ message: "El usuario ya existe" });
     }
     const passwordHash = await bcrypt.hash(password, 10);
 

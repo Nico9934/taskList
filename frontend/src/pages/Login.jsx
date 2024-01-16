@@ -1,6 +1,39 @@
+import { toast } from "react-toastify";
+import Description from "../components/Description";
+import { useAuth } from "../context/AuthContext";
+import { login } from "../../../src/controllers/auth.controller";
+
 const Login = () => {
+  // const { userLogin, setUserLogin } = useAuth();
+
+  // const validarDatos = () => {
+  //   const emailRegex =
+  //     /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+  //   if (Object.values(userLogin).includes("")) {
+  //     toast.warn("Todos los campos son obligatorios");
+  //     return false;
+  //   } else if (!emailRegex.test(userLogin.email)) {
+  //     toast.error("Debes ingresar un mail correcto");
+  //     return false;
+  //   }
+
+  //   return true;
+  // };
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setUserLogin({ ...userLogin, [name]: value });
+  // };
+
+  // const handleOnSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (validarDatos()) console.log("Todo esta bien");
+  // };
+
   return (
     <>
+      <Description />
       <div className="w-11/12 sm:w-7/12 mb bg-purple-700 overflow-hidden flex flex-col sm:flex-row relative rounded-2xl m-auto">
         <img
           src="../public/wave.svg"
@@ -11,7 +44,10 @@ const Login = () => {
           <img src="../public/login.png" className="w-full" alt="" />
         </div>
 
-        <div className="p-5 w-full sm:py-5 sm:px-8 sm:w-2/4 relative z-40 flex flex-col m-auto items-center">
+        <form
+          // onSubmit={handleOnSubmit}
+          className="p-5 w-full sm:py-5 sm:px-8 sm:w-2/4 relative z-40 flex flex-col m-auto items-center"
+        >
           <h3 className="text-end text-gray-200 font-semibold text-xl">
             Login
           </h3>
@@ -27,6 +63,9 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Email"
+                name="email"
+                // value={userLogin.email}
+                // onChange={handleChange}
                 className=" text-gray-500 text-xs bg-transparent placeholder:text-gray-500"
               />
             </div>
@@ -41,8 +80,11 @@ const Login = () => {
                 </div>
                 <input
                   type="text"
-                  placeholder="Password *"
-                  className=" text-gray-500 w-full text-xs bg-transparent placeholder:text-gray-500"
+                  placeholder="Password"
+                  name="password"
+                  // value={userLogin.password}
+                  // onChange={handleChange}
+                  className=" text-gray-500 text-xs bg-transparent placeholder:text-gray-500"
                 />
                 <div className="">
                   <svg
@@ -59,10 +101,13 @@ const Login = () => {
             Forgot your password?
           </p>
 
-          <div className="sm:w-5/12 mt-5 mx-auto bg-gray-300 shadow-lg text-sm text-gray-500 text-center px-2 py-1 rounded-lg">
+          <button
+            type="submit"
+            className="sm:w-5/12 mt-5 mx-auto bg-gray-300 shadow-lg text-sm text-gray-500 text-center px-2 py-1 rounded-lg"
+          >
             Inicia sesión
-          </div>
-        </div>
+          </button>
+        </form>
         <img
           src="../public/wavebis.svg"
           className="absolute w-full bottom-0"

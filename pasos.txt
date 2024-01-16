@@ -42,3 +42,20 @@ const authRequired = (req, res, next) => {
 }
 
 1:21:00 seccion Tasks Crud
+
+02:00 Empieza la configuración del front. 
+02:02 React Router dom
+en el front end, para enrutar se usa: 
+    BrowserRouter
+    Routes  
+    Route
+
+Para solucionar el pedido de cors hacia el backend, se instala en el front, la dependencia cors y
+se configura antes de la llamada al servidor con app.use(cors({origin: 'http://localhost/1573})) que es la
+dirección del dominio del front. 
+
+02:20 Creación del contexto
+    AuthContext.jsx
+    importar createContext.. se guarda en una constante que se llame authContext.jsx
+
+02:29 Para ir de una pagina a la otra se usa navigation de reactrouterDom
